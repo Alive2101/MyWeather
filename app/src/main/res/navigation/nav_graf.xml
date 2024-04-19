@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graf"
+    app:startDestination="@id/weatherForDayFragment">
+
+    <fragment
+        android:id="@+id/weatherForDayByHourFragment"
+        android:name="com.pavel.myweather.ui.weatherForDaybyHour.WeatherForDayByHourFragment"
+        android:label="WeatherForDayByHourFragment"
+        tools:layout="@layout/fragment_weather_for_day_by_hour" />
+    <fragment
+        android:id="@+id/weatherForDayFragment"
+        android:name="com.pavel.myweather.ui.weatherByCity.WeatherForDayByCityFragment"
+        android:label="WeatherForDayFragment"
+        tools:layout="@layout/fragment_weather_for_day" >
+        <action
+            android:id="@+id/action_weatherForDayFragment_to_weatherForDayByHourFragment"
+            app:destination="@id/weatherForDayByHourFragment" />
+    </fragment>
+</navigation>
