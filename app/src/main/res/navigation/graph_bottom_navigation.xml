@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph_bottom_navigation"
-    app:startDestination="@id/weatherForDayByCity">
+    app:startDestination="@id/search">
 
     <fragment
         android:id="@+id/search"
+        tools:layout="@layout/fragment_search"
         android:name="com.pavel.myweather.ui.search.SearchFragment"
         android:label="SearchFragment" />
     <fragment
-        android:id="@+id/weatherForDayByCity"
-        android:name="com.pavel.myweather.ui.weatherByCity.WeatherForDayByCityFragment"
-        android:label="WeatherForDayByCityFragment" />
-    <fragment
-        android:id="@+id/weatherForDayByHour"
-        android:name="com.pavel.myweather.ui.weatherForDaybyHour.WeatherForDayByHourFragment"
-        android:label="WeatherForDayByHourFragment" />
+        android:id="@+id/selectedCities"
+        tools:layout="@layout/fragment_selected_cities"
+        android:name="com.pavel.myweather.ui.safeCity.SelectedCitiesFragment"
+        android:label="SelectedCitiesFragment" />
 </navigation>

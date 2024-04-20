@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Моя погода</string>
+    <string name="air_quality">Качество воздуха:</string>
+    <string name="weather_for_the_week">Погода на неделю</string>
+    <string name="search">Найти</string>
+    <string name="hello">Привет! это приложение способно показывать погоду,
+        качество воздуха, температуру воздуха. Можно сохранять города, погоду где нужна узнать.
+        Так же можно узнать погоду на неделю и две недели вперед. Приятного пользования!</string>
+    <string name="hourly_forecast">Почасовой прогноз</string>
+    <string name="weather_for_two_weeks">Погода на две недели</string>
+    <string name="start_using">Приступить к пользованию!</string>
+</resources>

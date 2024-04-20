@@ -1,4 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Weather</string>
-    <string name="air_quality">Качество воздуха:</string>
+    <string name="air_quality">Air quality</string>
+    <string name="weather_for_the_week">Weather for the week</string>
+    <string name="search">Search</string>
+    <string name="hello">Hi! This application is capable of showing the weather,
+air quality, and air temperature. You can save cities and find out the weather where you need to.
+        You can also find out the weather for a week and two weeks ahead. Enjoy your use!</string>
+    <string name="hourly_forecast">Hourly forecast</string>
+    <string name="weather_for_two_weeks">Weather for two weeks</string>
+    <string name="start_using">Start using</string>
 </resources>
