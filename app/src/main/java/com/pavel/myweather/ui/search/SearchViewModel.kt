@@ -18,13 +18,13 @@ class SearchViewModel @Inject constructor(
     val listCity = MutableLiveData<List<FindCity>>()
     fun getCity(city: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = repository.getFindCity()
+            val response = repository.getFindCity(city)
             if (response.isSuccessful) {
-                response.body()?.cityItem?.map {
+                response.body()?.map {
                     FindCity(
                         name = it.name
                     )
-                }.run {
+                }?.run{
                     listCity.postValue(this)
                 }
             }

@@ -35,6 +35,7 @@ class WeatherForDayByHourFragment : Fragment() {
             setList(it)
         }
         viewModel.getWeather()
+        val city = arguments?.getString("city")
         //Log.e("s",viewModel.getWeather().toString())
     }
 

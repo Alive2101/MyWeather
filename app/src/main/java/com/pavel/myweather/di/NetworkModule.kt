@@ -19,7 +19,7 @@ class NetworkModule {
     @Singleton
     fun provideApi(): Api {
         return Retrofit.Builder()
-            .baseUrl("https://api.weatherapi.com")
+            .baseUrl("https://api.weatherapi.com/")
             .client(OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply {
                 setLevel(HttpLoggingInterceptor.Level.BODY)
             }).build())

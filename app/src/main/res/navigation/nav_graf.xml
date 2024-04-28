@@ -6,38 +6,15 @@
     app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/weatherForDayByHourFragment"
-        android:name="com.pavel.myweather.ui.weatherForDaybyHour.WeatherForDayByHourFragment"
-        android:label="WeatherForDayByHourFragment"
-        tools:layout="@layout/fragment_weather_for_day_by_hour" >
-        <action
-            android:id="@+id/action_weatherForDayByHourFragment_to_weatherForDayFragment"
-            app:destination="@id/weatherForDayFragment" />
-        <action
-            android:id="@+id/action_weatherForDayByHourFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/weatherForDayFragment"
-        android:name="com.pavel.myweather.ui.weatherByCity.WeatherForDayByCityFragment"
-        android:label="WeatherForDayFragment"
-        tools:layout="@layout/fragment_weather_for_day" >
-        <action
-            android:id="@+id/action_weatherForDayFragment_to_weatherForDayByHourFragment"
-            app:destination="@id/weatherForDayByHourFragment" />
-        <action
-            android:id="@+id/action_weatherForDayFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/mainFragment"
         android:name="com.pavel.myweather.ui.MainFragment"
-        android:label="MainFragment" >
-        <action
-            android:id="@+id/action_mainFragment_to_weatherForDayFragment"
-            app:destination="@id/weatherForDayFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_weatherForDayByHourFragment"
-            app:destination="@id/weatherForDayByHourFragment" />
-    </fragment>
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/weatherForDayByCityFragment2"
+        android:name="com.pavel.myweather.ui.weatherByCity.WeatherForDayByCityFragment"
+        android:label="WeatherForDayByCityFragment" />
+    <fragment
+        android:id="@+id/weatherForDayByHourFragment"
+        android:name="com.pavel.myweather.ui.weatherForDaybyHour.WeatherForDayByHourFragment"
+        android:label="WeatherForDayByHourFragment" />
 </navigation>

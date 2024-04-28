@@ -10,8 +10,8 @@ class WeatherViewHolder(private val binding: ItemDayByHourBinding) :
     fun bind(
         weather:WeatherByHour
     ) = binding.run {
-        binding?.dateTimeTextView?.text = "sss"
-        binding?.temperatureTextView?.text = "sss"
-        binding.signatureTextView.text = "Ssss"
+        binding.dateTimeTextView.text = weather.time
+        binding.temperatureTextView.text = weather.temp_c.toString()
+        binding.signatureTextView.text = weather.text
     }
 }
