@@ -1,7 +1,6 @@
 package com.pavel.myweather.ui.weatherByCity
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +41,15 @@ class WeatherForDayByCityFragment : Fragment() {
                     R.id.action_weatherForDayByCityFragment_to_weatherForDayByHourFragment2,
                     args
                 )
+            }
+            oneWeekButton.setOnClickListener {
+                findNavController().navigate(
+                    R.id.action_weatherForDayByCityFragment_to_weatherForOneWeekFragment,
+                    args
+                )
+            }
+            twoWeekButton.setOnClickListener {
+                findNavController().navigate(R.id.action_weatherForDayByCityFragment_to_weatherForTwoWeekFragment,args)
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.pavel.myweather.ui.weatherForDaybyHour
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,9 +20,7 @@ class WeatherForDayByHourFragment : Fragment() {
     private val viewModel: WeatherForDayByHourViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentWeatherForDayByHourBinding.inflate(inflater)
         return binding?.root
@@ -34,9 +31,10 @@ class WeatherForDayByHourFragment : Fragment() {
         viewModel.listWeather.observe(viewLifecycleOwner) {
             setList(it)
         }
-        viewModel.getWeather()
         val city = arguments?.getString("city")
-        //Log.e("s",viewModel.getWeather().toString())
+        if (city != null) {
+            viewModel.getWeather(city)
+        }
     }
 
     private fun setList(list: List<WeatherByHour>) {

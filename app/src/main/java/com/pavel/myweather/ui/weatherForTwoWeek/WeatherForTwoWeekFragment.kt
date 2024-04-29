@@ -1,4 +1,4 @@
-package com.pavel.myweather.ui.weatherForOneWeek
+package com.pavel.myweather.ui.weatherForTwoWeek
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,23 +7,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.pavel.myweather.databinding.FragmentWeatherForOneWeekBinding
+import com.pavel.myweather.databinding.FragmentWeatherForTwoWeeksBinding
 import com.pavel.myweather.model.WeatherByWeek
-import com.pavel.myweather.ui.weatherForOneWeek.adapter.OneWeekAdapter
+import com.pavel.myweather.ui.weatherForTwoWeek.adapter.TwoWeekAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class WeatherForOneWeekFragment : Fragment() {
+class WeatherForTwoWeekFragment : Fragment() {
 
-    private var binding: FragmentWeatherForOneWeekBinding? = null
-    private val viewModel: WeatherForOneWeekViewModel by viewModels()
+    private var binding: FragmentWeatherForTwoWeeksBinding? = null
+    private val viewModel: WeatherForTwoWeekViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentWeatherForOneWeekBinding.inflate(inflater)
+        binding = FragmentWeatherForTwoWeeksBinding.inflate(inflater)
         return binding?.root
     }
 
@@ -40,13 +40,12 @@ class WeatherForOneWeekFragment : Fragment() {
 
     private fun setList(list: List<WeatherByWeek>) {
         binding?.recyclerView?.run {
-            if(adapter == null){
+            if (adapter == null) {
                 layoutManager = LinearLayoutManager(requireContext())
-                adapter = OneWeekAdapter()
+                adapter = TwoWeekAdapter()
             }
-            (adapter as? OneWeekAdapter)?.submitList(list)
+            (adapter as? TwoWeekAdapter)?.submitList(list)
         }
 
     }
-
 }

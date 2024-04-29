@@ -1,5 +1,6 @@
 package com.pavel.myweather.ui.weatherForDaybyHour
 
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,12 +18,12 @@ class WeatherForDayByHourViewModel @Inject constructor(
 
     val listWeather = MutableLiveData<List<WeatherByHour>>()
 
-    fun getWeather() {
+    fun getWeather(city: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = repository.getWeatherByHour()
+            val response = repository.getWeatherByHour(city)
             if (response.isSuccessful) {
                 response.body()?.forecast?.forecastday?.map {
-                    it?.hour?.map { result ->
+                    it.hour.map { result ->
                         WeatherByHour(
                             time = result.time,
                             temp_c = result.temp_c,
