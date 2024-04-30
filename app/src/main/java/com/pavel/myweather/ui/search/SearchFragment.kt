@@ -1,13 +1,11 @@
 package com.pavel.myweather.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,13 +36,13 @@ class SearchFragment : Fragment() {
         binding?.run {
             findButton.setOnClickListener {
                 if (searchEditText.text?.isEmpty() == true) {
-                    Toast.makeText(requireContext(), " Укажите город", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), R.string.write_city, Toast.LENGTH_SHORT).show()
                 } else if (searchEditText.length() > 2) {
                     viewModel.getCity(searchEditText.text.toString())
                 } else {
                     Toast.makeText(
                         requireContext(),
-                        "Введите 3 и более символов",
+                        R.string.enter,
                         Toast.LENGTH_SHORT
                     ).show()
                 }

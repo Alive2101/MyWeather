@@ -18,7 +18,11 @@
         android:id="@+id/selectedCities"
         android:name="com.pavel.myweather.ui.safeCity.SelectedCitiesFragment"
         android:label="SelectedCitiesFragment"
-        tools:layout="@layout/fragment_selected_cities" />
+        tools:layout="@layout/fragment_selected_cities" >
+        <action
+            android:id="@+id/action_selectedCities_to_weatherForDayByCityFragment"
+            app:destination="@id/weatherForDayByCityFragment" />
+    </fragment>
     <fragment
         android:id="@+id/weatherForDayByCityFragment"
         android:name="com.pavel.myweather.ui.weatherByCity.WeatherForDayByCityFragment"
@@ -47,6 +51,7 @@
     <fragment
         android:id="@+id/weatherForTwoWeekFragment"
         android:name="com.pavel.myweather.ui.weatherForTwoWeek.WeatherForTwoWeekFragment"
-        android:label="WeatherForTwoWeekFragment" />
+        android:label="WeatherForTwoWeekFragment"
+        tools:layout="@layout/fragment_weather_for_two_weeks" /><action android:id="@+id/action_global_selectedCities" app:destination="@id/selectedCities"/>
 
 </navigation>

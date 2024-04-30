@@ -10,4 +10,7 @@
     <string name="hourly_forecast">Почасовой прогноз</string>
     <string name="weather_for_two_weeks">Погода на две недели</string>
     <string name="start_using">Приступить к пользованию!</string>
+    <string name="write_city">Укажите город</string>
+    <string name="enter">Введите 3 и более символов</string>
+    <string name="add">Добавлено</string>
 </resources>

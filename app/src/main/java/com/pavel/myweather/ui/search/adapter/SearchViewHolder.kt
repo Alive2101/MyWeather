@@ -1,7 +1,6 @@
 package com.pavel.myweather.ui.search.adapter
 
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.pavel.myweather.databinding.ItemCityBinding
 import com.pavel.myweather.model.FindCity
 

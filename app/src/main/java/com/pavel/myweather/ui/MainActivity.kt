@@ -10,7 +10,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //findNavController(R.id.nav_graf).navigate(R.id.action_global_weatherForDayFragment)
     }
 
 }

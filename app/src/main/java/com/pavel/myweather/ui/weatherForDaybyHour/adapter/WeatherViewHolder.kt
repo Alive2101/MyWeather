@@ -11,7 +11,7 @@ class WeatherViewHolder(private val binding: ItemDayByHourBinding) :
         weather:WeatherByHour
     ) = binding.run {
         binding.dateTimeTextView.text = weather.time
-        binding.temperatureTextView.text = weather.temp_c.toString()
+        binding.temperatureTextView.text = weather.temp_c
         binding.signatureTextView.text = weather.text
     }
 }

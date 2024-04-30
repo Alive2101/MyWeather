@@ -36,6 +36,11 @@ class WeatherForDayByCityFragment : Fragment() {
         }
         observeViewModel()
         binding?.run {
+            heartImageView.setOnClickListener {
+                if (city != null) {
+                    viewModel.addCity(city)
+                }
+            }
             hourButton.setOnClickListener {
                 findNavController().navigate(
                     R.id.action_weatherForDayByCityFragment_to_weatherForDayByHourFragment2,
@@ -49,7 +54,10 @@ class WeatherForDayByCityFragment : Fragment() {
                 )
             }
             twoWeekButton.setOnClickListener {
-                findNavController().navigate(R.id.action_weatherForDayByCityFragment_to_weatherForTwoWeekFragment,args)
+                findNavController().navigate(
+                    R.id.action_weatherForDayByCityFragment_to_weatherForTwoWeekFragment,
+                    args
+                )
             }
         }
     }
