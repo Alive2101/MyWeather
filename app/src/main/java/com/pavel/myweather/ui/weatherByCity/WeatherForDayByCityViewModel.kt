@@ -7,6 +7,8 @@ import com.pavel.myweather.model.WeatherByDay
 import com.pavel.myweather.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,6 +19,8 @@ private const val HTTPS = "https"
 class WeatherForDayByCityViewModel @Inject constructor(
     private val repository: WeatherRepository
 ) : ViewModel() {
+
+    private var job: Job? = null
 
     val listWeather = MutableLiveData<WeatherByDay>()
 
@@ -44,7 +48,8 @@ class WeatherForDayByCityViewModel @Inject constructor(
     }
 
     fun addCity(city: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        job?.cancelChildren()
+        job = viewModelScope.launch(Dispatchers.IO) {
             if (repository.findCity(city).isEmpty()) {
                 repository.addCity(city)
             }

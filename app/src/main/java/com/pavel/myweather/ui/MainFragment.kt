@@ -10,9 +10,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.pavel.myweather.R
 import com.pavel.myweather.databinding.FragmentMainBinding
 
-class MainFragment:Fragment() {
+class MainFragment : Fragment() {
 
-    private var binding:FragmentMainBinding?=null
+    private var binding: FragmentMainBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,9 +25,9 @@ class MainFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    childFragmentManager.findFragmentById(R.id.bottom_nav)?.findNavController()?.let {
-        navController ->
-        binding?.bottomNavigationView?.setupWithNavController(navController)
-    }
+        childFragmentManager.findFragmentById(R.id.bottom_nav)?.findNavController()
+            ?.let { navController ->
+                binding?.bottomNavigationView?.setupWithNavController(navController)
+            }
     }
 }
