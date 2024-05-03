@@ -17,6 +17,6 @@ interface CityDao {
     suspend fun findValue(city: String): List<CityEntity>
 
     @Query("DELETE FROM CityEntity WHERE city = :city")
-    suspend fun daleteCity(city:String)
+    suspend fun deleteCity(city:String)
 
 }

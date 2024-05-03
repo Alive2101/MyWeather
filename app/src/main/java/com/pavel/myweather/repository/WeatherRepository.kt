@@ -26,7 +26,7 @@ class WeatherRepository @Inject constructor(private val api: Api, private val ci
 
     suspend fun findCity(city: String) = cityDao.findValue(city)
 
-    suspend fun deleteCity(city:String) = cityDao.daleteCity(city)
+    suspend fun deleteCity(city:String) = cityDao.deleteCity(city)
 
     suspend fun getWeatherWithDate(city:String,date:String)=api.getWeatherWithDate(city,date)
 
