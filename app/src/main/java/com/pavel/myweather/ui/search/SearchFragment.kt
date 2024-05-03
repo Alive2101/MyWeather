@@ -1,6 +1,7 @@
 package com.pavel.myweather.ui.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,16 +11,21 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pavel.myweather.R
+import com.pavel.myweather.controller.NetworkController
 import com.pavel.myweather.databinding.FragmentSearchBinding
 import com.pavel.myweather.model.FindCity
 import com.pavel.myweather.ui.search.adapter.SearchAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
     private var binding: FragmentSearchBinding? = null
     private val viewModel: SearchViewModel by viewModels()
+
+    @Inject
+    lateinit var networkController: NetworkController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -32,6 +38,16 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.listCity.observe(viewLifecycleOwner) {
             setList(it)
+        }
+        viewModel.isNetworkConnected.observe(viewLifecycleOwner) {
+            Log.e("network", it.toString())
+            if (it) {
+                binding?.findButton?.visibility = View.VISIBLE
+                binding?.internetTextView?.visibility = View.GONE
+            } else {
+                binding?.findButton?.visibility = View.GONE
+                binding?.internetTextView?.visibility = View.VISIBLE
+            }
         }
         binding?.run {
             findButton.setOnClickListener {
@@ -57,7 +73,10 @@ class SearchFragment : Fragment() {
                 layoutManager = LinearLayoutManager(requireContext())
                 adapter = SearchAdapter { city ->
                     args.putString("city", city)
-                    findNavController().navigate(R.id.action_search_to_weatherForDayByCityFragment,args)
+                    findNavController().navigate(
+                        R.id.action_search_to_weatherForDayByCityFragment,
+                        args
+                    )
                 }
             }
             (adapter as? SearchAdapter)?.submitList(list)

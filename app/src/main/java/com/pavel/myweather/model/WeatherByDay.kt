@@ -1,5 +1,6 @@
 package com.pavel.myweather.model
 
+
 data class WeatherByDay(
     val name: String,
     val last_updated: String,

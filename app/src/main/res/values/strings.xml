@@ -4,13 +4,12 @@
     <string name="air_quality">Air quality</string>
     <string name="weather_for_the_week">Weather for the week</string>
     <string name="search">Search</string>
-    <string name="hello">Hi! This application is capable of showing the weather,
-air quality, and air temperature. You can save cities and find out the weather where you need to.
-        You can also find out the weather for a week and two weeks ahead. Enjoy your use!</string>
     <string name="hourly_forecast">Hourly forecast</string>
     <string name="weather_for_two_weeks">Weather for two weeks</string>
     <string name="start_using">Start using</string>
     <string name="write_city">Specify the city</string>
     <string name="enter">Enter 3 or more characters</string>
     <string name="add">Added</string>
+    <string name="enter_city">Enter the name of the city</string>
+    <string name="no_internet">no internet connection</string>
 </resources>

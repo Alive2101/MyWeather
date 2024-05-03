@@ -3,28 +3,38 @@
 
     <style name="find_button">
         <item name="android:text">@string/search</item>
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
     </style>
 
-    <style name="hello_textView">
-        <item name="android:gravity">center</item>
-        <item name="android:text">@string/hello</item>
-        <item name="android:textSize">25sp</item>
+    <style name="internet_textView">
+        <item name="android:text">@string/no_internet</item>
+        <item name="android:visibility">gone</item>
     </style>
+
 
     <style name="go_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
         <item name="android:text">@string/start_using</item>
         <item name="android:layout_marginTop">@dimen/dp_180</item>
     </style>
 
     <style name="hour_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
         <item name="android:text">@string/hourly_forecast</item>
     </style>
 
     <style name="one_week_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
         <item name="android:text">@string/weather_for_the_week</item>
     </style>
 
     <style name="two_week_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
         <item name="android:text">@string/weather_for_two_weeks</item>
     </style>
 

@@ -1,9 +1,12 @@
 package com.pavel.myweather.ui.weatherByCity
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -26,6 +29,7 @@ class WeatherForDayByCityFragment : Fragment() {
         return binding?.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val args = Bundle()
@@ -62,6 +66,8 @@ class WeatherForDayByCityFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun observeViewModel() {
         viewModel.listWeather.observe(viewLifecycleOwner) {
             binding?.run {
@@ -70,8 +76,8 @@ class WeatherForDayByCityFragment : Fragment() {
                     Glide.with(iconWeatherImageView).load(it.icon).into(iconWeatherImageView)
                 }
                 cityTextView.text = it.name
-                temperatureTextView.text = it.temp_c
-                lastUpdateTextView.text = it.last_updated
+                temperatureTextView.text = "${it.temp_c} \u2103"
+                lastUpdateTextView.text = "Последнее обновление: ${ it.last_updated}"
                 carbonMonoxideTextView.text = it.co
                 ozoneTextView.text = it.o3
                 nitrogenDioxideTextView.text = it.no2
