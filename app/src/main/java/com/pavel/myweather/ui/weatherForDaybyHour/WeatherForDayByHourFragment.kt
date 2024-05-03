@@ -1,6 +1,7 @@
 package com.pavel.myweather.ui.weatherForDaybyHour
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,8 +33,13 @@ class WeatherForDayByHourFragment : Fragment() {
             setList(it)
         }
         val city = arguments?.getString("city")
+        val date = arguments?.getString("date")
         if (city != null) {
             viewModel.getWeather(city)
+        }
+        if ((city != null) && (date != null)) {
+            Log.e("date and city",date.toString())
+            viewModel.getWeatherWithDate(city, date)
         }
     }
 

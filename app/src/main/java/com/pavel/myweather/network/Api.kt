@@ -23,4 +23,10 @@ interface Api {
         @Query("q") city: String,
         @Query("days") day: Int
     ): Response<WeatherHourAndWeekResponse>
+
+    @GET("v1/future.json?key=$API_KEY&lang=ru")
+    suspend fun getWeatherWithDate(
+        @Query("q") city: String,
+        @Query("dt") date: String
+    ): Response<WeatherHourAndWeekResponse>
 }

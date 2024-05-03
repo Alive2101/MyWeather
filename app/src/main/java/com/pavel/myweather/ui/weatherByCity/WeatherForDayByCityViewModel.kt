@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-private const val HTTPS = "https"
+private const val HTTPS = "https:"
 
 @HiltViewModel
 class WeatherForDayByCityViewModel @Inject constructor(
@@ -46,6 +46,8 @@ class WeatherForDayByCityViewModel @Inject constructor(
             }
         }
     }
+
+
 
     fun addCity(city: String) {
         job?.cancelChildren()

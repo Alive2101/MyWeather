@@ -4,16 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="#FAF7F7">
 
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bg_house"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/heart_imageView"
@@ -30,32 +23,46 @@
         android:layout_height="64dp"
         android:layout_marginStart="@dimen/dp_8"
         android:layout_marginTop="@dimen/dp_8"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/temperature_textView" />
+        app:layout_constraintTop_toBottomOf="@id/text_textView" />
+
+    <Button
+
+        android:id="@+id/check_date_button"
+        style="@style/check_date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        app:layout_constraintBottom_toTopOf="@id/two_week_button"
+        app:layout_constraintStart_toEndOf="@id/hour_button" />
 
     <Button
         android:id="@+id/hour_button"
         style="@style/hour_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/last_update_textView" />
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintBottom_toTopOf="@id/two_week_button"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/one_week_button"
         style="@style/one_week_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hour_button" />
+        android:layout_marginEnd="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/two_week_button"
         style="@style/two_week_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/one_week_button" />
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
@@ -71,10 +78,10 @@
         android:id="@+id/last_update_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp_10"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heart_imageView"
+        android:layout_marginStart="@dimen/dp_10"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_weather_imageView"
         tools:text="last update" />
 
     <TextView
@@ -82,8 +89,10 @@
         style="@style/text_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heart_imageView"
+        app:layout_constraintTop_toBottomOf="@id/temperature_textView"
         tools:text="text" />
 
     <TextView
@@ -91,8 +100,11 @@
         style="@style/temperature_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/last_update_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_textView"
         tools:text="t" />
 
     <TextView
@@ -100,20 +112,29 @@
         style="@style/air_quality_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icon_weather_imageView" />
+        app:layout_constraintTop_toBottomOf="@id/last_update_textView" />
 
     <TextView
         android:id="@+id/carbon_monoxide_textView"
         style="@style/quality_textViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
+
+        android:layout_marginEnd="@dimen/dp_10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/air_quality_textView"
         tools:text="co" />
 
     <TextView
         android:id="@+id/ozone_textView"
+
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/dp_10"
+
+        android:layout_marginEnd="@dimen/dp_10"
         style="@style/quality_textViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -123,6 +144,11 @@
 
     <TextView
         android:id="@+id/nitrogen_dioxide_textView"
+
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/dp_10"
+
+        android:layout_marginEnd="@dimen/dp_10"
         style="@style/quality_textViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,6 +158,11 @@
 
     <TextView
         android:id="@+id/sulphur_dioxide_textView"
+
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/dp_10"
+
+        android:layout_marginEnd="@dimen/dp_10"
         style="@style/quality_textViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -141,6 +172,11 @@
 
     <TextView
         android:id="@+id/pm2_5_textView"
+
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/dp_10"
+
+        android:layout_marginEnd="@dimen/dp_10"
         style="@style/quality_textViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -150,6 +186,10 @@
 
     <TextView
         android:id="@+id/pm1_0_textView"
+
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
         style="@style/quality_textViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

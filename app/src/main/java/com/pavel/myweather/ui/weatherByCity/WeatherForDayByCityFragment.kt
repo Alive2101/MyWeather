@@ -1,12 +1,12 @@
 package com.pavel.myweather.ui.weatherByCity
 
 import android.annotation.SuppressLint
-import android.os.Build
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,12 +14,20 @@ import com.bumptech.glide.Glide
 import com.pavel.myweather.R
 import com.pavel.myweather.databinding.FragmentWeatherForDayByCityBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
+
+private const val DAY = 200
+private const val MONTH = 10
+private const val MINDAY = 15
 
 @AndroidEntryPoint
 class WeatherForDayByCityFragment : Fragment() {
 
     private var binding: FragmentWeatherForDayByCityBinding? = null
     private val viewModel: WeatherForDayByCityViewModel by viewModels()
+    private val calendar = Calendar.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,7 +37,6 @@ class WeatherForDayByCityFragment : Fragment() {
         return binding?.root
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val args = Bundle()
@@ -63,11 +70,13 @@ class WeatherForDayByCityFragment : Fragment() {
                     args
                 )
             }
+            checkDateButton.setOnClickListener {
+                showDatePicker()
+            }
         }
     }
 
     @SuppressLint("SetTextI18n")
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun observeViewModel() {
         viewModel.listWeather.observe(viewLifecycleOwner) {
             binding?.run {
@@ -76,16 +85,66 @@ class WeatherForDayByCityFragment : Fragment() {
                     Glide.with(iconWeatherImageView).load(it.icon).into(iconWeatherImageView)
                 }
                 cityTextView.text = it.name
-                temperatureTextView.text = "${it.temp_c} \u2103"
-                lastUpdateTextView.text = "Последнее обновление: ${ it.last_updated}"
-                carbonMonoxideTextView.text = it.co
-                ozoneTextView.text = it.o3
-                nitrogenDioxideTextView.text = it.no2
-                sulphurDioxideTextView.text = it.so2
-                pm25TextView.text = it.pm2_5
-                pm10TextView.text = it.pm10
+                temperatureTextView.text = "${resources.getString(R.string.temperature)} ${it.temp_c} \u2103"
+                lastUpdateTextView.text =
+                    "${resources.getString(R.string.last_update)} ${it.last_updated}"
+                carbonMonoxideTextView.text =
+                    "${resources.getString(R.string.carbon_monoxide)} ${it.co} ${
+                        resources.getString(R.string.hg)
+                    }"
+                ozoneTextView.text = "${resources.getString(R.string.ozone)} ${it.o3} ${
+                    resources.getString(R.string.hg)
+                }"
+                nitrogenDioxideTextView.text =
+                    "${resources.getString(R.string.nitrogen_dioxide)} ${it.no2} ${
+                        resources.getString(R.string.hg)
+                    }"
+                sulphurDioxideTextView.text =
+                    "${resources.getString(R.string.sulphur_dioxide)} ${it.so2} ${
+                        resources.getString(R.string.hg)
+                    }"
+                pm25TextView.text = "${resources.getString(R.string.pm2_5)} ${it.pm2_5} ${
+                    resources.getString(R.string.hg)
+                }"
+                pm10TextView.text = "${resources.getString(R.string.pm10)} ${it.pm10} ${
+                    resources.getString(R.string.hg)
+                }"
             }
         }
+    }
+
+    private fun showDatePicker() {
+        val args = Bundle()
+        val city = arguments?.getString("city")
+        val datePickerDialog = DatePickerDialog(
+            requireContext(), { DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
+                val selectedDate = Calendar.getInstance()
+                selectedDate.set(year, monthOfYear, dayOfMonth)
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val formattedDate = dateFormat.format(selectedDate.time)
+                args.putString("date", formattedDate)
+                args.putString("city", city)
+                Log.e("date1", formattedDate.toString())
+                findNavController().navigate(
+                    R.id.action_weatherForDayByCityFragment_to_weatherForDayByHourFragment2,
+                    args
+                )
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        val minDay = calendar.get(Calendar.DAY_OF_MONTH) + MINDAY
+        val minMonth = calendar.get(Calendar.MONTH)
+        val minYear = calendar.get(Calendar.YEAR)
+        calendar.set(minYear, minMonth, minDay)
+        datePickerDialog.datePicker.minDate = calendar.timeInMillis
+
+        val maxDay = minDay + DAY
+        val maxMonth = minMonth + MONTH
+        calendar.set(minYear, maxMonth - 1, maxDay)
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+        datePickerDialog.show()
     }
 }
 

@@ -12,4 +12,15 @@
     <string name="add">Добавлено</string>
     <string name="enter_city">Введите название города</string>
     <string name="no_internet">Нет соединения с интернетом</string>
+    <string name="check_date">Выбрать дату</string>
+    <string name="carbon_monoxide">Окись углерода</string>
+    <string name="ozone">Озон</string>
+    <string name="nitrogen_dioxide">Диоксид азота</string>
+    <string name="sulphur_dioxide">Диоксид серы</string>
+    <string name="pm2.5">PM2.5</string>
+    <string name="pm10">PM10</string>
+    <string name="hg">мкг/м3</string>
+    <string name="last_update">Последнее обновление:</string>
+
+    <string name="temperature">Температура воздуха: </string>
 </resources>

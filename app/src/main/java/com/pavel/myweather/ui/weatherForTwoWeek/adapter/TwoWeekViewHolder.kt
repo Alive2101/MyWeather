@@ -13,7 +13,7 @@ class TwoWeekViewHolder (private val binding: ItemDayForWeekBinding) :
     ) = binding.run {
         dateTextView.text = weather.date
         textTextView.text = weather.text
-        temperatureTextView.text = weather.temp
+        temperatureTextView.text = "${weather.temp} \u2103"
         iconImageView.run {
             Glide.with(iconImageView).load(weather.icon).into(this)
         }

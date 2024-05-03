@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 private const val DAY = 15
-private const val HTTPS = "https"
+private const val HTTPS = "https:"
 
 @HiltViewModel
 class WeatherForTwoWeekViewModel @Inject constructor(
