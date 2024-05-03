@@ -21,6 +21,5 @@
     <string name="pm10">PM10</string>
     <string name="hg">мкг/м3</string>
     <string name="last_update">Последнее обновление:</string>
-
     <string name="temperature">Температура воздуха: </string>
 </resources>
