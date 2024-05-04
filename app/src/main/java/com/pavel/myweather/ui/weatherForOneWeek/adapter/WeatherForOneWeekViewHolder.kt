@@ -5,7 +5,7 @@ import com.bumptech.glide.Glide
 import com.pavel.myweather.databinding.ItemDayForWeekBinding
 import com.pavel.myweather.model.WeatherByWeek
 
-class OneWeekViewHolder(private val binding: ItemDayForWeekBinding) :
+class WeatherForOneWeekViewHolder(private val binding: ItemDayForWeekBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(

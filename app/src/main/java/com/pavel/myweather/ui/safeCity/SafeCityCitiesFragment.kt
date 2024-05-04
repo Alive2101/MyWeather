@@ -9,21 +9,21 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pavel.myweather.R
-import com.pavel.myweather.databinding.FragmentSelectedCitiesBinding
+import com.pavel.myweather.databinding.FragmentSafeCityBinding
 import com.pavel.myweather.model.Safe
-import com.pavel.myweather.ui.safeCity.adapter.SelectedAdapter
+import com.pavel.myweather.ui.safeCity.adapter.SafeCityAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SelectedCitiesFragment : Fragment() {
+class SafeCityCitiesFragment : Fragment() {
 
-    private var binding: FragmentSelectedCitiesBinding? = null
-    private val viewModel: SelectedCitiesViewModel by viewModels()
+    private var binding: FragmentSafeCityBinding? = null
+    private val viewModel: SafeCityCitiesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSelectedCitiesBinding.inflate(inflater)
+        binding = FragmentSafeCityBinding.inflate(inflater)
         return binding?.root
     }
 
@@ -41,7 +41,7 @@ class SelectedCitiesFragment : Fragment() {
         binding?.cityLikeRecyclerView?.run {
             if (adapter == null) {
                 layoutManager = LinearLayoutManager(requireContext())
-                adapter = SelectedAdapter({ like ->
+                adapter = SafeCityAdapter({ like ->
                     args.putString("city", like)
                     findNavController().navigate(
                         R.id.action_selectedCities_to_weatherForDayByCityFragment, args
@@ -51,7 +51,7 @@ class SelectedCitiesFragment : Fragment() {
                     findNavController().navigate(R.id.action_global_selectedCities)
                 })
             }
-            (adapter as? SelectedAdapter)?.submitList(list)
+            (adapter as? SafeCityAdapter)?.submitList(list)
         }
 
     }

@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import com.pavel.myweather.databinding.ItemDayForWeekBinding
 import com.pavel.myweather.model.WeatherByWeek
 
-class OneWeekAdapter :
-    ListAdapter<WeatherByWeek, OneWeekViewHolder>(object : DiffUtil.ItemCallback<WeatherByWeek>() {
+class WeatherForOneWeekAdapter :
+    ListAdapter<WeatherByWeek, WeatherForOneWeekViewHolder>(object : DiffUtil.ItemCallback<WeatherByWeek>() {
         override fun areItemsTheSame(oldItem: WeatherByWeek, newItem: WeatherByWeek): Boolean {
             return oldItem.date == newItem.date
         }
@@ -18,15 +18,15 @@ class OneWeekAdapter :
         }
 
     }) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OneWeekViewHolder {
-        return OneWeekViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherForOneWeekViewHolder {
+        return WeatherForOneWeekViewHolder(
             ItemDayForWeekBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: OneWeekViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: WeatherForOneWeekViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 }

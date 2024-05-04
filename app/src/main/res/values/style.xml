@@ -57,7 +57,7 @@
     </style>
 
     <style name="temperature_textView">
-        <item name="android:layout_marginTop">@dimen/dp_40</item>
+        <item name="android:layout_marginTop">@dimen/dp_20</item>
         <item name="android:layout_marginStart">@dimen/dp_16</item>
         <item name="android:textSize">20sp</item>
     </style>

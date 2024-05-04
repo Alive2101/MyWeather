@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import com.pavel.myweather.databinding.ItemDayByHourBinding
 import com.pavel.myweather.model.WeatherByHour
 
-class WeatherAdapter :
-    ListAdapter<WeatherByHour, WeatherViewHolder>(object : DiffUtil.ItemCallback<WeatherByHour>() {
+class WeatherForDayByHourAdapter :
+    ListAdapter<WeatherByHour, WeatherForDayByHourViewHolder>(object : DiffUtil.ItemCallback<WeatherByHour>() {
         override fun areItemsTheSame(oldItem: WeatherByHour, newItem: WeatherByHour): Boolean {
             return oldItem.time == newItem.time
         }
@@ -18,8 +18,8 @@ class WeatherAdapter :
         }
 
     }) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {
-        return WeatherViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherForDayByHourViewHolder {
+        return WeatherForDayByHourViewHolder(
             ItemDayByHourBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -28,7 +28,7 @@ class WeatherAdapter :
         )
     }
 
-    override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: WeatherForDayByHourViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 }

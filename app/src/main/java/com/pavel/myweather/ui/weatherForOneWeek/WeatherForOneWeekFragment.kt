@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pavel.myweather.databinding.FragmentWeatherForOneWeekBinding
 import com.pavel.myweather.model.WeatherByWeek
-import com.pavel.myweather.ui.weatherForOneWeek.adapter.OneWeekAdapter
+import com.pavel.myweather.ui.weatherForOneWeek.adapter.WeatherForOneWeekAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,9 +42,9 @@ class WeatherForOneWeekFragment : Fragment() {
         binding?.recyclerView?.run {
             if(adapter == null){
                 layoutManager = LinearLayoutManager(requireContext())
-                adapter = OneWeekAdapter()
+                adapter = WeatherForOneWeekAdapter()
             }
-            (adapter as? OneWeekAdapter)?.submitList(list)
+            (adapter as? WeatherForOneWeekAdapter)?.submitList(list)
         }
 
     }

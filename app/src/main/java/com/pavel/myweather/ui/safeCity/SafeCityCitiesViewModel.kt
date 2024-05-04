@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SelectedCitiesViewModel @Inject constructor(
+class SafeCityCitiesViewModel @Inject constructor(
     private val repository: WeatherRepository
 ) : ViewModel() {
 

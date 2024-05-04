@@ -1,7 +1,6 @@
 package com.pavel.myweather.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,29 +38,36 @@ class SearchFragment : Fragment() {
         viewModel.listCity.observe(viewLifecycleOwner) {
             setList(it)
         }
-        viewModel.isNetworkConnected.observe(viewLifecycleOwner) {
-            Log.e("network", it.toString())
-            if (it) {
-                binding?.findButton?.visibility = View.VISIBLE
-                binding?.internetTextView?.visibility = View.GONE
-            } else {
-                binding?.findButton?.visibility = View.GONE
-                binding?.internetTextView?.visibility = View.VISIBLE
+        binding?.run {
+            viewModel.isNetworkConnected.observe(viewLifecycleOwner) {
+                if (it) {
+                    findButton.visibility = View.VISIBLE
+                    internetTextView.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
+                } else {
+                    findButton.visibility = View.GONE
+                    internetTextView.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                }
+            }
+            findButton.setOnClickListener {
+                validate()
             }
         }
+    }
+
+    private fun validate() {
         binding?.run {
-            findButton.setOnClickListener {
-                if (searchEditText.text?.isEmpty() == true) {
-                    Toast.makeText(requireContext(), R.string.write_city, Toast.LENGTH_SHORT).show()
-                } else if (searchEditText.length() > 2) {
-                    viewModel.getCity(searchEditText.text.toString())
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.enter,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+            if (searchEditText.text?.isEmpty() == true) {
+                Toast.makeText(requireContext(), R.string.write_city, Toast.LENGTH_SHORT).show()
+            } else if (searchEditText.length() > 2) {
+                viewModel.getCity(searchEditText.text.toString())
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.enter,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

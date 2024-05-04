@@ -1,4 +1,4 @@
-package com.pavel.myweather.ui.weatherByCity
+package com.pavel.myweather.ui.weatherForDayByCity
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

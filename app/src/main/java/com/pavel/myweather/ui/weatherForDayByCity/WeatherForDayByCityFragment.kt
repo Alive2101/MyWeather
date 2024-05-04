@@ -1,4 +1,4 @@
-package com.pavel.myweather.ui.weatherByCity
+package com.pavel.myweather.ui.weatherForDayByCity
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -18,8 +18,8 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-private const val DAY = 200
-private const val MONTH = 10
+private const val DAY = 30
+private const val MONTH = 2
 private const val MINDAY = 15
 
 @AndroidEntryPoint

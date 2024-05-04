@@ -16,16 +16,16 @@
     </fragment>
     <fragment
         android:id="@+id/selectedCities"
-        android:name="com.pavel.myweather.ui.safeCity.SelectedCitiesFragment"
+        android:name="com.pavel.myweather.ui.safeCity.SafeCityCitiesFragment"
         android:label="SelectedCitiesFragment"
-        tools:layout="@layout/fragment_selected_cities" >
+        tools:layout="@layout/fragment_safe_city" >
         <action
             android:id="@+id/action_selectedCities_to_weatherForDayByCityFragment"
             app:destination="@id/weatherForDayByCityFragment" />
     </fragment>
     <fragment
         android:id="@+id/weatherForDayByCityFragment"
-        android:name="com.pavel.myweather.ui.weatherByCity.WeatherForDayByCityFragment"
+        android:name="com.pavel.myweather.ui.weatherForDayByCity.WeatherForDayByCityFragment"
         android:label="WeatherForDayByCityFragment"
         tools:layout="@layout/fragment_weather_for_day_by_city">
         <action

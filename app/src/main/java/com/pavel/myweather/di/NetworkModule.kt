@@ -6,7 +6,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -20,9 +19,7 @@ class NetworkModule {
     fun provideApi(): Api {
         return Retrofit.Builder()
             .baseUrl("https://api.weatherapi.com/")
-            .client(OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply {
-                setLevel(HttpLoggingInterceptor.Level.BODY)
-            }).build())
+            .client(OkHttpClient.Builder().build())
             .addConverterFactory(GsonConverterFactory.create()).build().create(Api::class.java)
     }
 }

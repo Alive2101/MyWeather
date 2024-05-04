@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pavel.myweather.databinding.ItemCityForSafeBinding
 import com.pavel.myweather.model.Safe
 
-class SelectedViewHolder(
+class SafeCityViewHolder(
     private val binding: ItemCityForSafeBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(

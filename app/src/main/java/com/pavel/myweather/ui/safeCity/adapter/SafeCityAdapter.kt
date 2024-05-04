@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import com.pavel.myweather.databinding.ItemCityForSafeBinding
 import com.pavel.myweather.model.Safe
 
-class SelectedAdapter(
+class SafeCityAdapter(
     private val onCityInfo: (city: String) -> Unit,
     private val onDeleteCity: (city: String) -> Unit
 ) :
-    ListAdapter<Safe, SelectedViewHolder>(object : DiffUtil.ItemCallback<Safe>() {
+    ListAdapter<Safe, SafeCityViewHolder>(object : DiffUtil.ItemCallback<Safe>() {
         override fun areItemsTheSame(oldItem: Safe, newItem: Safe): Boolean {
             return oldItem.id == newItem.id
         }
@@ -20,14 +20,14 @@ class SelectedAdapter(
             return oldItem == newItem
         }
     }) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectedViewHolder {
-        return SelectedViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SafeCityViewHolder {
+        return SafeCityViewHolder(
             ItemCityForSafeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
 
     }
 
-    override fun onBindViewHolder(holder: SelectedViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SafeCityViewHolder, position: Int) {
         holder.bind(getItem(position), onCityInfo, onDeleteCity)
     }
 

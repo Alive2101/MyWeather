@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pavel.myweather.databinding.FragmentWeatherForDayByHourBinding
 import com.pavel.myweather.model.WeatherByHour
-import com.pavel.myweather.ui.weatherForDaybyHour.adapter.WeatherAdapter
+import com.pavel.myweather.ui.weatherForDaybyHour.adapter.WeatherForDayByHourAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -47,9 +47,9 @@ class WeatherForDayByHourFragment : Fragment() {
         binding?.recyclerView?.run {
             if (adapter == null) {
                 layoutManager = LinearLayoutManager(requireContext())
-                adapter = WeatherAdapter()
+                adapter = WeatherForDayByHourAdapter()
             }
-            (adapter as? WeatherAdapter)?.submitList(list)
+            (adapter as? WeatherForDayByHourAdapter)?.submitList(list)
         }
     }
 }

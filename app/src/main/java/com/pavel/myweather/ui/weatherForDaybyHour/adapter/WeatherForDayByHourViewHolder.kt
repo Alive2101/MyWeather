@@ -5,7 +5,7 @@ import com.bumptech.glide.Glide
 import com.pavel.myweather.databinding.ItemDayByHourBinding
 import com.pavel.myweather.model.WeatherByHour
 
-class WeatherViewHolder(private val binding: ItemDayByHourBinding) :
+class WeatherForDayByHourViewHolder(private val binding: ItemDayByHourBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(
