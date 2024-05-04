@@ -3,20 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graf"
-    app:startDestination="@id/weatherForDayFragment">
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.pavel.myweather.ui.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/weatherForDayByCityFragment2"
+        android:name="com.pavel.myweather.ui.weatherForDayByCity.WeatherForDayByCityFragment"
+        android:label="WeatherForDayByCityFragment" />
     <fragment
         android:id="@+id/weatherForDayByHourFragment"
         android:name="com.pavel.myweather.ui.weatherForDaybyHour.WeatherForDayByHourFragment"
-        android:label="WeatherForDayByHourFragment"
-        tools:layout="@layout/fragment_weather_for_day_by_hour" />
-    <fragment
-        android:id="@+id/weatherForDayFragment"
-        android:name="com.pavel.myweather.ui.weatherByCity.WeatherForDayByCityFragment"
-        android:label="WeatherForDayFragment"
-        tools:layout="@layout/fragment_weather_for_day" >
-        <action
-            android:id="@+id/action_weatherForDayFragment_to_weatherForDayByHourFragment"
-            app:destination="@id/weatherForDayByHourFragment" />
-    </fragment>
+        android:label="WeatherForDayByHourFragment" />
 </navigation>

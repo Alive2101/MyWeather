@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_bottom_navigation"
+    app:startDestination="@id/search">
+
+    <fragment
+        android:id="@+id/search"
+        android:name="com.pavel.myweather.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_search_to_weatherForDayByCityFragment"
+            app:destination="@id/weatherForDayByCityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedCities"
+        android:name="com.pavel.myweather.ui.safeCity.SafeCityCitiesFragment"
+        android:label="SelectedCitiesFragment"
+        tools:layout="@layout/fragment_safe_city" >
+        <action
+            android:id="@+id/action_selectedCities_to_weatherForDayByCityFragment"
+            app:destination="@id/weatherForDayByCityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherForDayByCityFragment"
+        android:name="com.pavel.myweather.ui.weatherForDayByCity.WeatherForDayByCityFragment"
+        android:label="WeatherForDayByCityFragment"
+        tools:layout="@layout/fragment_weather_for_day_by_city">
+        <action
+            android:id="@+id/action_weatherForDayByCityFragment_to_weatherForDayByHourFragment2"
+            app:destination="@id/weatherForDayByHourFragment2" />
+        <action
+            android:id="@+id/action_weatherForDayByCityFragment_to_weatherForOneWeekFragment"
+            app:destination="@id/weatherForOneWeekFragment" />
+        <action
+            android:id="@+id/action_weatherForDayByCityFragment_to_weatherForTwoWeekFragment"
+            app:destination="@id/weatherForTwoWeekFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherForDayByHourFragment2"
+        android:name="com.pavel.myweather.ui.weatherForDaybyHour.WeatherForDayByHourFragment"
+        android:label="WeatherForDayByHourFragment"
+        tools:layout="@layout/fragment_weather_for_day_by_hour" />
+    <fragment
+        android:id="@+id/weatherForOneWeekFragment"
+        android:name="com.pavel.myweather.ui.weatherForOneWeek.WeatherForOneWeekFragment"
+        android:label="WeatherForOneWeekFragment"
+        tools:layout="@layout/fragment_weather_for_one_week" />
+    <fragment
+        android:id="@+id/weatherForTwoWeekFragment"
+        android:name="com.pavel.myweather.ui.weatherForTwoWeek.WeatherForTwoWeekFragment"
+        android:label="WeatherForTwoWeekFragment"
+        tools:layout="@layout/fragment_weather_for_two_weeks" /><action android:id="@+id/action_global_selectedCities" app:destination="@id/selectedCities"/>
+
+</navigation>

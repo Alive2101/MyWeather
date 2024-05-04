@@ -1,4 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Weather</string>
-    <string name="air_quality">Качество воздуха:</string>
+    <string name="air_quality">Air quality</string>
+    <string name="weather_for_the_week">Weather for the week</string>
+    <string name="search">Search</string>
+    <string name="hourly_forecast">Hourly forecast</string>
+    <string name="weather_for_two_weeks">Weather for two weeks</string>
+    <string name="start_using">Start using</string>
+    <string name="write_city">Specify the city</string>
+    <string name="enter">Enter 3 or more characters</string>
+    <string name="add">Added</string>
+    <string name="enter_city">Enter the name of the city</string>
+    <string name="no_internet">no internet connection</string>
+    <string name="check_date">Select a date</string>
+    <string name="carbon_monoxide">Carbon Monoxide</string>
+    <string name="ozone">Ozone</string>
+    <string name="nitrogen_dioxide">Nitrogen dioxide</string>
+    <string name="sulphur_dioxide">Sulphur dioxide</string>
+    <string name="pm2.5">PM2.5</string>
+    <string name="pm10">PM10</string>
+    <string name="hg">μg/m3</string>
+    <string name="last_update">Last update:</string>
+    <string name="temperature">temperature:</string>
+    <string name="saved_cities">Saved cities</string>
 </resources>

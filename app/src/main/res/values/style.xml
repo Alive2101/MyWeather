@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="find_button">
+        <item name="android:text">@string/search</item>
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
+    </style>
+
+    <style name="internet_textView">
+        <item name="android:text">@string/no_internet</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+
+    <style name="go_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
+        <item name="android:text">@string/start_using</item>
+        <item name="android:layout_marginTop">@dimen/dp_180</item>
+    </style>
+
+    <style name="check_date_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
+        <item name="android:text">@string/check_date</item>
+    </style>
+
+    <style name="hour_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
+        <item name="android:text">@string/hourly_forecast</item>
+    </style>
+
+    <style name="one_week_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
+        <item name="android:text">@string/weather_for_the_week</item>
+    </style>
+
+    <style name="two_week_button">
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:textColor">#4F9BE1</item>
+        <item name="android:text">@string/weather_for_two_weeks</item>
+    </style>
+
+    <style name="city_textView">
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:layout_marginTop">@dimen/dp_10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="text_textView">
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="temperature_textView">
+        <item name="android:layout_marginTop">@dimen/dp_20</item>
+        <item name="android:layout_marginStart">@dimen/dp_16</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="air_quality_textView">
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:layout_marginTop">@dimen/dp_20</item>
+        <item name="android:text">@string/air_quality</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="quality_textViews">
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">@dimen/dp_10</item>
+        <item name="android:layout_marginEnd">@dimen/dp_10</item>
+    </style>
+
+    <style name="city_textView_item">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="data_textView">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="date_textView_item">
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:text">16sp</item>
+    </style>
+
+    <style name="temperature_textView_item">
+        <item name="android:layout_marginEnd">@dimen/dp_10</item>
+    </style>
+
+    <style name="text_textView_item">
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:layout_marginTop">@dimen/dp_10</item>
+        <item name="android:text">16sp</item>
+    </style>
+</resources>
